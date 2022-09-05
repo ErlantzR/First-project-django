@@ -13,5 +13,14 @@ def goodbye(request):
 def date(request):
 
     current_date = datetime.datetime.now()
-    document = f"Current date {current_date}"
+    document = f"Current date: {current_date}"
+    return HttpResponse(document)
+
+def age_calculator(request, year):
+
+    current_date = 18
+    passed_time = year - 2022
+    future_age = current_date + passed_time
+    document = f"In year {year} you will be {future_age} years old"
+
     return HttpResponse(document)
