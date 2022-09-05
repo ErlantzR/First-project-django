@@ -16,11 +16,10 @@ def date(request):
     document = f"Current date: {current_date}"
     return HttpResponse(document)
 
-def age_calculator(request, year):
+def age_calculator(request, year, current_age):
 
-    current_date = 18
     passed_time = year - 2022
-    future_age = current_date + passed_time
+    future_age = current_age + passed_time
     document = f"In year {year} you will be {future_age} years old"
 
     return HttpResponse(document)
