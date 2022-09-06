@@ -6,13 +6,17 @@ def greeting(request):
 
     name = "Erlantz"
 
+    surname = "Ramos"
+
+    current_date = datetime.datetime.now().strftime("%d / %b / %y")
+
     external_doc=open("/Users/erlantzramossanchez/Projects/Django/tutorial/tutorial/templates/my_greeting.html")
 
     tpl=Template(external_doc.read())
 
     external_doc.close()
 
-    ctx=Context({"my_name": name})
+    ctx=Context({"my_name": name, "my_surname": surname, "date": current_date})
 
     document=tpl.render(ctx)
 
