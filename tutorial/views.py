@@ -1,9 +1,20 @@
 from django.http import HttpResponse
 import datetime
+from django.template import Template, Context
 
 def greeting(request):
 
-    return HttpResponse("Hello World!")
+    external_doc=open("/Users/erlantzramossanchez/Projects/Django/tutorial/tutorial/templates/my_greeting.html")
+
+    tpl=Template(external_doc.read())
+
+    external_doc.close()
+
+    ctx=Context()
+
+    document=tpl.render(ctx)
+
+    return HttpResponse(document)
 
 def goodbye(request):
 
