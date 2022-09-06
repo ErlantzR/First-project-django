@@ -4,13 +4,15 @@ from django.template import Template, Context
 
 def greeting(request):
 
+    name = "Erlantz"
+
     external_doc=open("/Users/erlantzramossanchez/Projects/Django/tutorial/tutorial/templates/my_greeting.html")
 
     tpl=Template(external_doc.read())
 
     external_doc.close()
 
-    ctx=Context()
+    ctx=Context({"my_name": name})
 
     document=tpl.render(ctx)
 
